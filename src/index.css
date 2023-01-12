@@ -1,13 +1,160 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+:root {
+  --odd-color: #fef68a;
+  --even-color: #67d7cc;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.note-listing{
+  width: 100%;
+  margin: 12px auto;
+}
+body {
+  font-family: 'Poppins';
+  /* animation: change 10s infinite; */
+}
+
+
+@keyframes change {
+  0% {
+    background-color: #1abc9c;
+  }
+
+  25% {
+    background-color: #2ecc71;
+  }
+
+  50% {
+    background-color: #3498db;
+  }
+
+  75% {
+    background-color: #9b59b6;
+  }
+
+  100% {
+    background-color: #e74c3c;
+  }
+}
+
+/* Note Listing Styling */
+.note-row>h4,
+p {
+  padding: 8px 10px;
+}
+
+.my-col {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.note-col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  margin: 10px 5px;
+  border-radius: 15px 15px 15px 15px;
+  background-color: var(--odd-color);
+}
+
+.note-col:nth-child(n) {
+  width: 100%;
+}
+
+.note-title {
+  background-color: var(--even-color);
+  padding: 10px 5px;
+  border-radius: 15px 15px 0px 0px;
+  font-size: 18px;
+}
+
+.note-para {
+  font-size: 14px;
+}
+
+.note-title h4 {
+  font-size:18px;
+  padding: 4px 8px;
+}
+.note-actions{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding: 5px 10px;
+  color: #696767;
+}
+.btn-delete{
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  appearance: none;
+  color: #696767;
+  font-weight: 600;
+  transition: .4s ease-in-out all;
+}
+.btn-delete:hover{
+  color: #e74c3c;
+}
+.bi-trash3-fill{
+  font-size: 18px;
+}
+
+
+/* Add Note Styling */
+.new-note{
+  display: flex;
+  background-color: var(--even-color);
+  border-radius: 15px 15px 15px 15px;
+}
+.newnote-title {
+  background-color: var(--even-color);
+  padding: 10px 5px;
+  border-radius: 15px 15px 0px 0px;
+  font-size: 18px;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px 10px;
+}
+.newnote-para {
+  background-color: var(--even-color);
+  font-size: 14px;
+  width: 100%;
+  border: none;
+  resize: none;
+  outline: none;
+  padding: 10px 10px;
+}
+.newnote-actions{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  background-color: var(--even-color);
+  padding: 5px 10px;
+}
+.rem-text{
+  font-size: 14px;
 }
