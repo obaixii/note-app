@@ -1,6 +1,6 @@
 import Home from './Pages/Home';
-function App() {
 
+function App() {
   return (
     <div className='App container'>
       <Home/>
