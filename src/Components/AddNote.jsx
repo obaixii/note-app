@@ -1,18 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { createNote } from '../features/note/noteSlice'
 
 function AddNote() {
+    
+    const [note, setNote] = useState({
+        title: '',
+        body: ''
+    })
+    const noteCharLimit = 200
+    const dispatch = useDispatch()
+
+    const handleSave = (e) => {
+        e.preventDefault();
+        const newNote = {
+            id: Date.now(),
+            ...note,
+            createdAt: new Date().toLocaleDateString()
+        }
+        dispatch(createNote(newNote))
+    }
     return (
-        <div className='new-note'>
-            <div className="add-note">
-                <input type="text" className="newnote-title" placeholder='Enter your Note title...'/>
-                    <textarea className="newnote-para" name="add-note" cols="auto" rows="8" placeholder='Write your Note here...'>
-                    </textarea>
-                    <div className="newnote-actions">
-                        <span className='rem-text'>200 remaining</span>
-                        <button className='btn btn-success'>Save</button>
-                    </div>
+        <form onSubmit={handleSave}>
+            <input className="note-title title-input" type="text" onChange={(e)=>setNote({...note
+            ,title:e.target.value})} name="title" placeholder="Enter your Title..." required />
+            <textarea className="note-para" maxLength={noteCharLimit} name="textarea" onChange={(e)=>setNote({...note,body:e.target.value})} placeholder='Enter Your Note Description...' required></textarea>
+            <div className="note-actions">
+                <div className="note-created">
+                    <span className='rem-text'>{noteCharLimit - note.body.length} Remaining</span>
+                </div>
+                <div className="note-buttons">
+                    <button className='btn btn-success' >Save</button>
+                </div>
             </div>
-        </div>
+        </form >
     )
 }
 
